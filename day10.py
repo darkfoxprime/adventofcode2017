@@ -79,17 +79,19 @@ class Day10(object):
         lst = lst[-pos:] + lst[:-pos]
         hsh = ''
         while len(lst) > 0:
-            hsh += ('0' + hex(reduce(lambda a,b:a^b, lst[:16])))[-2:]
+            hsh += hex(256 + reduce(lambda a,b:a^b, lst[:16]))[-2:]
             lst = lst[16:]
         return hsh
 
-#
-# The puzzle input
-#
+if __name__ == '__main__':
 
-puzzle_input = '227,169,3,166,246,201,0,47,1,255,2,254,96,3,97,144'
+    #
+    # The puzzle input
+    #
 
-day10 = Day10(puzzle_input)
+    puzzle_input = '227,169,3,166,246,201,0,47,1,255,2,254,96,3,97,144'
 
-print 'part 1 solution = {0}'.format( day10.part1() )
-print 'part 2 solution = {0}'.format( day10.part2() )
+    day10 = Day10(puzzle_input)
+
+    print 'part 1 solution = {0}'.format( day10.part1() )
+    print 'part 2 solution = {0}'.format( day10.part2() )
